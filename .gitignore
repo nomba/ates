@@ -348,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Obsidian
+docs/.obsidian/workspace.json
+docs/.obsidian/workspace-mobile.json
+docs/.obsidian/appearance.json
