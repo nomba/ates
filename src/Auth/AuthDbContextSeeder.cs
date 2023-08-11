@@ -1,3 +1,4 @@
+using Auth.Domain;
 using Microsoft.Extensions.Options;
 
 namespace Auth;
@@ -22,11 +23,18 @@ internal class AuthDbContextSeeder
             _logger.LogInformation("Cleaning database..");
             await _dbContext.Database.EnsureDeletedAsync();
         }
-        
+
         _logger.LogInformation("Creating database..");
         await _dbContext.Database.EnsureCreatedAsync();
-        
-        
+
+        // Seed System Admin
+        if (_options.RecreateDatabase)
+        {
+            _dbContext.Pogugs.Add(new Popug(_options.SuperPopug, "Super Popug", RoleType.Administrator));
+            await _dbContext.SaveChangesAsync();
+        }
+
+
         // TODO: Seeding if needed
     }
 }

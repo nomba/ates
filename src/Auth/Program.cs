@@ -58,6 +58,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
 builder.Services.AddTransient<AuthDbContextSeeder>();
 builder.Services.Configure<SeedingOptions>(builder.Configuration.GetSection("Seeding"));
 var app = builder.Build();
