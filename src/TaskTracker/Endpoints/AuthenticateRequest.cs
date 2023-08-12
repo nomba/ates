@@ -1,4 +1,4 @@
-﻿namespace Auth.Endpoints;
+﻿namespace TaskTracker.Endpoints;
 
 public class AuthenticateRequest
 {

@@ -33,6 +33,18 @@ public class AuthDbContext : DbContext
             entity.Ignore(e => e.DomainEvents);
         });
     }
+    
+    public override int SaveChanges()
+    {
+        throw new NotImplementedException($"This overload does not implement domain event publishing. Use {nameof(SaveChangesAsync)} instead.");
+    }
+    
+    
+    public override int SaveChanges(bool acceptAllChangesOnSuccess)
+    {
+        throw new NotImplementedException($"This overload does not implement domain event publishing. Use {nameof(SaveChangesAsync)} instead.");
+    }
+
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {

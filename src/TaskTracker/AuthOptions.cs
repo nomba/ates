@@ -1,4 +1,4 @@
-﻿namespace Auth;
+﻿namespace TaskTracker;
 
 public class AuthOptions
 {
