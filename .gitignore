@@ -357,3 +357,12 @@ docs/.obsidian/appearance.json
 # Drawio
 *.bkp
 *.dtmp
+
+# JetBrains Rider
+*.sln.iml
+.idea
+
+# SQL Lite
+*.db
+*.db-shm
+*.db-wal
