@@ -16,6 +16,7 @@ public class RegisterUserEndpoint : EndpointBaseAsync.WithRequest<RegisterUserRe
     }
     
     [Authorize]
+    [AllowAnonymous]
     [HttpPost("/users")]
     [SwaggerOperation(Summary = "Register a new popug")]
     public override async Task<ActionResult<RegisterUserResponse>> HandleAsync(RegisterUserRequest request, CancellationToken cancellationToken = new CancellationToken())

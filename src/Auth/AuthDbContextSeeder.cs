@@ -33,8 +33,7 @@ internal class AuthDbContextSeeder
             _dbContext.Pogugs.Add(new Popug(_options.SuperPopug, "Super Popug", RoleType.Administrator));
             await _dbContext.SaveChangesAsync();
         }
-
-
+        
         // TODO: Seeding if needed
     }
 }

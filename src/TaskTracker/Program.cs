@@ -4,9 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using TaskTracker;
+using TaskTracker.Integration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHostedService<KafkaMessageListener>();
+builder.Services.AddTransient<IKafkaMessageHandler, KafkaMessageHandler>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
