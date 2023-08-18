@@ -40,9 +40,9 @@ internal class TaskTrackerDbContextSeeder
         var popug5 = new Popug("poma2", "Poma 2", RoleType.Manager);
         var popugs = new[] { popug1, popug2, popug3, popug4, popug5 };
 
-        var task1 = new Domain.Task("Super important", "Super super super POPA", popug1, TaskPrice.RollDice, DateTime.Now);
-        var task2 = new Domain.Task("Super important 2", "Super super super POPA 2", popug2, TaskPrice.RollDice, DateTime.Now);
-        var task3 = new Domain.Task("Super important 2", "Super super super POPA 3", popug3, TaskPrice.RollDice, DateTime.Now);
+        var task1 = new Domain.Task("Super important", "Super super super POPA", popug1, TaskPrice.RollDice(), DateTime.Now);
+        var task2 = new Domain.Task("Super important 2", "Super super super POPA 2", popug2, TaskPrice.RollDice(), DateTime.Now);
+        var task3 = new Domain.Task("Super important 2", "Super super super POPA 3", popug3, TaskPrice.RollDice(), DateTime.Now);
         var tasks = new[] { task1, task2, task3 };
 
         _dbContext.Popugs.AddRange(popugs);

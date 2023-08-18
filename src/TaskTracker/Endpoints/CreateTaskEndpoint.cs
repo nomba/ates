@@ -27,7 +27,7 @@ public class CreateTaskEndpoint : EndpointBaseAsync.WithRequest<CreateTaskReques
         if (taskAssignee is null)
             return NotFound($"Assignee popug \"{request.AssigneeId}\" not found");
         
-        var task = new Domain.Task(request.Title, request.Description, taskAssignee, TaskPrice.RollDice, DateTime.Now);
+        var task = new Domain.Task(request.Title, request.Description, taskAssignee, TaskPrice.RollDice(), DateTime.Now);
         _taskTrackerDbContext.Tasks.Add(task);
         
         await _taskTrackerDbContext.SaveChangesAsync(cancellationToken);
