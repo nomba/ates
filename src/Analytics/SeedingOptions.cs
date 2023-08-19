@@ -6,5 +6,6 @@ internal class SeedingOptions
     private const string DEFAULT_SYSTEM_POPUG = "supo";
     
     public bool RecreateDatabase { get; set; }
+    public bool FillTestData { get; set; }
     public string SuperPopug { get; set; } = DEFAULT_SYSTEM_POPUG;
 }

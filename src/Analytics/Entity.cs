@@ -1,6 +1,6 @@
-﻿using Analytics;
+﻿using Auth;
 
-namespace Auth;
+namespace Analytics;
 
 public abstract class Entity<TId>
 {
