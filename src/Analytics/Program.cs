@@ -58,7 +58,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddHostedService<StatisticsRefresher>();
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddTransient<ITaskTopCalculator, TaskTopCalculator>();
 
 builder.Services.AddTransient<AnalyticsDbContextSeeder>();
 builder.Services.Configure<SeedingOptions>(builder.Configuration.GetSection("Seeding"));
