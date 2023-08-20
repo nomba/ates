@@ -61,6 +61,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddSingleton<IKafkaMessageProducer, KafkaMessageProducer>();
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 builder.Services.AddTransient<TaskTrackerDbContextSeeder>();
