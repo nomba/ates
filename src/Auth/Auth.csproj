@@ -20,4 +20,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SchemaRegistry\SchemaRegistry.csproj" />
+    </ItemGroup>
+
 </Project>

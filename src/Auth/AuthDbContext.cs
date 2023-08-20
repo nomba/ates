@@ -76,6 +76,7 @@ public class AuthDbContext : DbContext
             }
             catch (Exception ex)
             {
+                // TODO: Transactional outbox can be introduced to solve problem with event delivery
                 _logger.LogWarning(ex, "Integration failed. Unable to publish {EventName}", domainEvent.GetType().ShortDisplayName());
             }
         }

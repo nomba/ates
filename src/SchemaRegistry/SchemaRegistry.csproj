@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Schemas\Accounting\" />
+      <Folder Include="Schemas\Tasks\Completed\" />
+      <Folder Include="Schemas\Tasks\Created\" />
+      <Folder Include="Schemas\Tasks\Reassigned\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="JsonSchema.Net" Version="5.1.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Schemas\Users\Created\1.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

@@ -1,6 +1,6 @@
 using Confluent.Kafka;
 
-namespace Auth.Integration;
+namespace TaskTracker.Integration;
 
 internal class KafkaMessageProducer : IKafkaMessageProducer
 {

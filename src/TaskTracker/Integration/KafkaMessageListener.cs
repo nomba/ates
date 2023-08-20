@@ -14,8 +14,9 @@ internal class KafkaMessageListener : BackgroundService
         _logger = logger;
         _config = new ConsumerConfig
         {
-            GroupId = "ates-group-consumer",
+            GroupId = "ates-task-tracker",
             BootstrapServers = "localhost:9092",
+            
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
     }
@@ -23,7 +24,7 @@ internal class KafkaMessageListener : BackgroundService
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         using var consumer = new ConsumerBuilder<Ignore, string>(_config).Build();
-        consumer.Subscribe(new[] { "ates-auth", "ates-auth-streaming" });
+        consumer.Subscribe(new[] {"user-life-cycle", "user-streaming"});
 
         while (!stoppingToken.IsCancellationRequested)
         {
@@ -32,6 +33,7 @@ internal class KafkaMessageListener : BackgroundService
                 // ReSharper disable once AccessToDisposedClosure
                 var consumingTask = Task.Run(() => consumer.Consume(stoppingToken), stoppingToken);
 
+                // TODO: Prevent app crashing if problem with kafka occurs
                 var consumeResult = await consumingTask;
                 await _kafkaMessageHandler.Handle(consumeResult.Topic, consumeResult.Message.Value);
             }
