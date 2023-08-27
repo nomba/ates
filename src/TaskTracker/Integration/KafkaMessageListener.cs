@@ -16,7 +16,7 @@ internal class KafkaMessageListener : BackgroundService
         {
             GroupId = "ates-task-tracker",
             BootstrapServers = "localhost:9092",
-            
+
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
     }
@@ -32,14 +32,13 @@ internal class KafkaMessageListener : BackgroundService
             {
                 // ReSharper disable once AccessToDisposedClosure
                 var consumingTask = Task.Run(() => consumer.Consume(stoppingToken), stoppingToken);
-
-                // TODO: Prevent app crashing if problem with kafka occurs
                 var consumeResult = await consumingTask;
+
                 await _kafkaMessageHandler.Handle(consumeResult.Topic, consumeResult.Message.Value);
             }
-            catch (ConsumeException ex)
+            catch (Exception ex)
             {
-                _logger.LogWarning(ex, "Consuming failed.");
+                _logger.LogError(ex, "Consuming message failed");
             }
         }
 

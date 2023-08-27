@@ -19,5 +19,5 @@ internal class PopugCreatedStreamingEventProducer : MessageBrokerDomainEventHand
         });
     }
 
-    protected override string GetTopic() => "popug-user-streaming";
+    protected override string GetTopic() => "user-streaming";
 }

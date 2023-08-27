@@ -1,4 +1,4 @@
-namespace TaskTracker.Integration.Events;
+namespace TaskTracker.Integration.EventProducing;
 
 public class TaskReassignedBehaviourEvent : MessageBrokerEvent
 {
@@ -13,6 +13,5 @@ public class TaskReassignedBehaviourEvent : MessageBrokerEvent
     {
         public Guid Id { get; set; }
         public Guid NewAssigneeId { get; set; }
-        public Guid PreviousAssigneeId { get; set; }
     }
 }

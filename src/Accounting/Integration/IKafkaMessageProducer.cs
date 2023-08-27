@@ -1,4 +1,4 @@
-namespace TaskTracker.Integration;
+namespace Accounting.Integration;
 
 internal interface IKafkaMessageProducer : IDisposable
 {

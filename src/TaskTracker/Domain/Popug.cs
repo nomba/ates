@@ -21,7 +21,7 @@ public class Popug : Entity
 
     public string Username { get; }
     public string FullName { get; set; }
-    public RoleType Role { get; private set; }
+    public RoleType Role { get; set; }
     public string? Email { get; init; }
     public bool IsActive { get; private set; }
 }

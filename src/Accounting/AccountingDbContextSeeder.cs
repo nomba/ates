@@ -1,5 +1,6 @@
 using Accounting.Domain;
 using Microsoft.Extensions.Options;
+using Task = System.Threading.Tasks.Task;
 
 namespace Accounting;
 
