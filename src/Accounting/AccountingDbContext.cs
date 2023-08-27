@@ -16,6 +16,8 @@ public class AccountingDbContext : DbContext
         _logger = logger;
     }
 
+    public DbSet<Account> Accounts { get; set; }
+    public DbSet<Domain.Task> Tasks { get; set; }
     public DbSet<Popug> Pogugs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

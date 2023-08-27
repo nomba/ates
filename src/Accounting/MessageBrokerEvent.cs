@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace TaskTracker.Integration;
+namespace Accounting;
 
 public class MessageBrokerEvent<T> : INotification
 {

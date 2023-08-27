@@ -1,4 +1,4 @@
-﻿namespace TaskTracker.Integration.Events;
+﻿namespace TaskTracker.Integration.EventProducing;
 
 public class TaskCreatedBehaviourEvent : MessageBrokerEvent
 {
@@ -12,11 +12,6 @@ public class TaskCreatedBehaviourEvent : MessageBrokerEvent
     public class DataType
     {
         public Guid Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public double Fee { get; set; }
-        public double Reward { get; set; }
-        public string Status { get; set; }
         public Guid AssigneeId { get; set; }
     }
 }

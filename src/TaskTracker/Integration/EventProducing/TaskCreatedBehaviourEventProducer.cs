@@ -1,6 +1,6 @@
 ﻿using TaskTracker.Domain.Events;
 
-namespace TaskTracker.Integration.Events;
+namespace TaskTracker.Integration.EventProducing;
 
 internal class TaskCreatedBehaviourEventProducer : MessageBrokerDomainEventHandler<TaskCreatedDomainEvent, TaskCreatedBehaviourEvent>
 {
@@ -13,11 +13,7 @@ internal class TaskCreatedBehaviourEventProducer : MessageBrokerDomainEventHandl
         return new TaskCreatedBehaviourEvent(Guid.NewGuid(), DateTime.UtcNow, new TaskCreatedBehaviourEvent.DataType
         {
             Id = domainEvent.Task.Id,
-            Title = domainEvent.Task.Title,
-            Description = domainEvent.Task.Description,
-            Fee = (double) domainEvent.Task.Price.Fee,
-            Reward = (double) domainEvent.Task.Price.Reward,
-            Status = domainEvent.Task.Status.ToString()
+            AssigneeId = domainEvent.Task.Assignee.Id
         });
     }
 

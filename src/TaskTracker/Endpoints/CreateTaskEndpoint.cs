@@ -44,23 +44,3 @@ public class CreateTaskEndpoint : EndpointBaseAsync.WithRequest<CreateTaskReques
         return Created($"/tasks/{task.Id}", response);
     }
 }
-
-public interface ITaskAssigneeFinder
-{
-    Task<Popug> Find(CancellationToken cancellationToken);
-}
-
-class TaskAssigneeFinder : ITaskAssigneeFinder
-{
-    private readonly TaskTrackerDbContext _taskTrackerDbContext;
-
-    public TaskAssigneeFinder(TaskTrackerDbContext taskTrackerDbContext)
-    {
-        _taskTrackerDbContext = taskTrackerDbContext;
-    }
-
-    public Task<Popug> Find(CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-}

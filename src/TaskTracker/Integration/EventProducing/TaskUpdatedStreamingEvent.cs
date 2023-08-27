@@ -1,4 +1,4 @@
-namespace TaskTracker.Integration.Events;
+namespace TaskTracker.Integration.EventProducing;
 
 public class TaskUpdatedStreamingEvent : MessageBrokerEvent
 {
